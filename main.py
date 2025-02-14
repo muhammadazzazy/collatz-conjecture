@@ -7,6 +7,7 @@ def main() -> None:
             user_input: str = input(
                 'Enter a number that is greater than one: ')
             if user_input == 'exit':
+                print('Thanks for trying my program!')
                 exit()
             n: int = int(user_input)
             if n <= 1:
