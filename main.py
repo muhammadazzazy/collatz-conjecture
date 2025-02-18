@@ -2,22 +2,31 @@ from sys import exit
 
 
 def main() -> None:
+    error_message: str = 'Please enter a valid integer...'
+    exit_message: str = 'Exiting program...'
     while True:
         try:
             user_input: str = input(
-                'Enter a number that is greater than one: ')
+                'Enter an integer that is greater than one: ')
+
             if user_input == 'exit':
-                print('Thanks for trying my program!')
+                print(exit_message)
                 exit()
-            n: int = int(user_input)
-            if n <= 1:
-                print('Invalid input...')
+
+            if user_input.isnumeric():
+                n: int = int(user_input)
+            else:
+                print(error_message)
                 continue
-        except ValueError:
-            print('Invalid input...')
+
+            if n <= 1:
+                print(error_message)
+                continue
+
         except KeyboardInterrupt:
-            print('Exiting...')
+            print(exit_message)
             exit()
+
         steps: int = 0
         while n != 1:
             if n % 2 == 0:
